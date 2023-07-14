@@ -27,6 +27,22 @@ app.post("/api/users", function (req, res) {
   });
 });
 
+app.delete("/api/users/:id", function (req, res) {
+  fs.readFile("codeshare.json", (err, data) => {
+    if (err) throw err;
+    let users = JSON.parse(data);
+    let filteredUsers = users.filter(
+      (user) => user.id !== Number(req.params.id)
+    );
+    let newUsers = JSON.stringify(filteredUsers);
+    fs.writeFile("codeshare.json", newUsers, (err) => {
+      if (err) throw err;
+
+      res.status(204).end();
+    });
+  });
+});
+
 app.listen(3000, function () {
   console.log("Example app listening on port 3000!");
 });
