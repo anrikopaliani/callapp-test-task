@@ -1,8 +1,10 @@
 let express = require("express");
 const fs = require("fs");
 let app = express();
+const cors = require("cors");
 
 app.use(express.json());
+app.use(cors());
 
 app.get("/api/users", function (req, res) {
   fs.readFile("codeshare.json", (err, data) => {
