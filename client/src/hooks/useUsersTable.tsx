@@ -5,9 +5,7 @@ const useUsersTable = () => {
   const { fetchUsers, users, removeUser } = useStore();
 
   useEffect(() => {
-    fetchUsers()
-      .then(() => console.log("success"))
-      .catch((err) => console.log(err));
+    fetchUsers();
   }, []);
 
   return { users, removeUser };

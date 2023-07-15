@@ -19,7 +19,7 @@ const useModalForm = () => {
       },
     };
 
-    store.addUser(newObjValues).catch((err) => console.log(err));
+    store.addUser(newObjValues);
     form.resetFields();
   };
 

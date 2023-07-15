@@ -13,6 +13,6 @@ export type User = {
 export type StateTypes = {
   users: User[];
   fetchUsers: () => Promise<void>;
-  addUser: (data: any) => Promise<void>;
+  addUser: (data: any) => void;
   removeUser: (id: number) => void;
 };

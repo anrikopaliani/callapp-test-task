@@ -8,18 +8,15 @@ const useStore = create<StateTypes>((set) => ({
     const response = await axios.get("http://localhost:3000/api/users");
     set({ users: response.data as User[] });
   },
-  addUser: async (data: User) => {
-    try {
-      const response = await axios.post(
-        "http://localhost:3000/api/users",
-        data
-      );
-      set((state) => ({
-        users: [...state.users, response.data],
-      }));
-    } catch (err) {
-      console.log(err);
-    }
+  addUser: (data: User) => {
+    axios
+      .post("http://localhost:3000/api/users", data)
+      .then((response) => {
+        set((state) => ({
+          users: [...state.users, response.data],
+        }));
+      })
+      .catch((err) => console.log(err));
   },
   removeUser: (id: number) => {
     axios
