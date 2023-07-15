@@ -21,6 +21,16 @@ const useStore = create<StateTypes>((set) => ({
       console.log(err);
     }
   },
+  removeUser: (id: number) => {
+    axios
+      .delete(`http://localhost:3000/api/users/${id}`)
+      .then(() => {
+        set((state) => ({
+          users: state.users.filter((user) => user.id !== id),
+        }));
+      })
+      .catch((err) => console.log(err));
+  },
 }));
 
 export default useStore;

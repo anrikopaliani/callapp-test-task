@@ -14,12 +14,22 @@ const AddUsersModal = () => {
     setOpen(false);
   };
 
+  const handleCancel = () => {
+    console.log("Clicked cancel button");
+    setOpen(false);
+  };
+
   return (
     <div className={styles.modalContainer}>
       <Button type="primary" onClick={showModal}>
         Add user
       </Button>
-      <Modal footer={null} title="Create new user" open={open}>
+      <Modal
+        footer={null}
+        title="Create new user"
+        onCancel={handleCancel}
+        open={open}
+      >
         <ModalForm closeModal={closeModal} />
       </Modal>
     </div>

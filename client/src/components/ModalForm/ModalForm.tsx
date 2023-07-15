@@ -35,8 +35,6 @@ const ModalForm: React.FC<ModalFormProps> = () => {
         rules={[
           {
             required: true,
-            pattern: /^+?(\d{3})?\d+$/,
-            message: "type correct phone number format",
           },
         ]}
       >

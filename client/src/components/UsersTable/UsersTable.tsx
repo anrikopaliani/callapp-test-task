@@ -1,11 +1,12 @@
 import { FC } from "react";
-import { Table } from "antd";
+import { Button, Table } from "antd";
 
 import Column from "antd/es/table/Column";
 import { useUsersTable } from "../../hooks";
+import { User } from "../../store/types";
 
 const UsersTable: FC = () => {
-  const { users } = useUsersTable();
+  const { users, removeUser } = useUsersTable();
 
   if (users.length <= 0) return null;
 
@@ -25,6 +26,16 @@ const UsersTable: FC = () => {
         )}
       />
       <Column title="Phone" dataIndex="phone" key="phone" />
+      <Column
+        title="Actions"
+        render={(data: User) => (
+          <>
+            <Button onClick={() => removeUser(data.id)} danger>
+              Delete
+            </Button>
+          </>
+        )}
+      />
     </Table>
   );
 };

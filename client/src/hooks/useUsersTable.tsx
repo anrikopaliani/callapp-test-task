@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useStore } from "../store";
 
 const useUsersTable = () => {
-  const { fetchUsers, users } = useStore();
+  const { fetchUsers, users, removeUser } = useStore();
 
   useEffect(() => {
     fetchUsers()
@@ -10,7 +10,7 @@ const useUsersTable = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  return { users };
+  return { users, removeUser };
 };
 
 export default useUsersTable;
