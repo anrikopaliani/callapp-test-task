@@ -34,7 +34,7 @@ const useStore = create<StateTypes>((set) => ({
   },
   editUser: (id: number, data: User) => {
     axios
-      .put(`http://localhost:3000/api/users/${id}`)
+      .put(`http://localhost:3000/api/users/${id}`, data)
       .then(() => {
         set((state) => ({
           users: state.users.map((user) => (user.id === id ? data : user)),
