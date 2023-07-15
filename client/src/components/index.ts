@@ -1,2 +1,1 @@
-export * from "./UsersTable";
-export * from "./Modal";
+export * from "./HomePage";

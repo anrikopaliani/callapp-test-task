@@ -1,12 +1,14 @@
-import { UsersTable } from "./components";
-import { Modal } from "./components";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Home } from "./components";
 
 function App() {
   return (
-    <>
-      <UsersTable />
-      <Modal />
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/chart" />
+      </Routes>
+    </Router>
   );
 }
 
