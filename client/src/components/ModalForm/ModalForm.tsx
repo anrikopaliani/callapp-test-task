@@ -1,5 +1,5 @@
+import { FC } from "react";
 import { Button, Form, Input, Select } from "antd";
-import React from "react";
 import { useModalForm } from "../../hooks";
 import { ModalFormProps } from "./types";
 
@@ -14,7 +14,7 @@ const tailLayout = {
   wrapperCol: { offset: 8, span: 16 },
 };
 
-const ModalForm: React.FC<ModalFormProps> = () => {
+const ModalForm: FC<ModalFormProps> = () => {
   const { form, onFinish, onReset } = useModalForm();
 
   return (

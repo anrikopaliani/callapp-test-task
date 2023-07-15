@@ -1,4 +1,4 @@
-import { Button, Form, Input, Modal, Select } from "antd";
+import { Button, Form, Input, Select } from "antd";
 import { FC } from "react";
 import { EditTableFormProps } from "./types";
 import { useEditTableForm } from "../../hooks";
