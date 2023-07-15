@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { StateTypes, User } from "./types";
+import { EditUserType, StateTypes, User } from "./types";
 import axios from "axios";
 
 const useStore = create<StateTypes>((set) => ({
@@ -28,6 +28,16 @@ const useStore = create<StateTypes>((set) => ({
       .then(() => {
         set((state) => ({
           users: state.users.filter((user) => user.id !== id),
+        }));
+      })
+      .catch((err) => console.log(err));
+  },
+  editUser: (id: number, data: User) => {
+    axios
+      .put(`http://localhost:3000/api/users/${id}`)
+      .then(() => {
+        set((state) => ({
+          users: state.users.map((user) => (user.id === id ? data : user)),
         }));
       })
       .catch((err) => console.log(err));
