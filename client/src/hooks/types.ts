@@ -18,3 +18,7 @@ export type SubmitFormType = {
   email: string;
   phone: string;
 };
+
+export type PreviousReduceValueType = {
+  [key: string]: number;
+};
