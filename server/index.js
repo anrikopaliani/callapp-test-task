@@ -10,7 +10,6 @@ app.get("/api/users", function (req, res) {
   fs.readFile("codeshare.json", (err, data) => {
     if (err) throw err;
     let users = JSON.parse(data);
-    console.log(users);
     res.json(users);
   });
 });
