@@ -8,6 +8,7 @@ export type FormValuesType = {
 };
 
 export type SubmitFormType = {
+  id: number;
   name: string;
   address: {
     city: string;

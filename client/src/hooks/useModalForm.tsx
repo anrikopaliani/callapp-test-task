@@ -9,6 +9,7 @@ const useModalForm = () => {
   const onFinish = (values: FormValuesType) => {
     const { city, street, name, phone, email, gender } = values;
     const newObjValues: SubmitFormType = {
+      id: Math.random(),
       name,
       phone,
       email,
