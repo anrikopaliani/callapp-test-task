@@ -4,9 +4,13 @@ import axios from "axios";
 
 const useStore = create<StateTypes>((set) => ({
   users: [],
-  fetchUsers: async () => {
-    const response = await axios.get("http://localhost:3000/api/users");
-    set({ users: response.data as User[] });
+  fetchUsers: () => {
+    axios
+      .get("http://localhost:3000/api/users")
+      .then((response) => {
+        set({ users: response.data as User[] });
+      })
+      .catch((err) => console.log(err));
   },
   addUser: (data: User) => {
     axios
